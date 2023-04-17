@@ -1,0 +1,61 @@
+name: Deploy Azure Enterprise Scale Landing Zone
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+  push:
+    branches:
+      - main
+      - feat/*
+
+jobs:
+  az-login-oidc:
+    runs-on: [self-hosted, linux]
+    environment: jawas
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          allow-no-subscriptions: true
+          enable-AzPSSession: false
+
+  process-management-groups:
+    uses: ./.github/workflows/mg.yml
+    with:
+      az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
+    secrets: inherit
+
+  policy-definitions:
+    uses: ./.github/workflows/policydef.yml
+    needs: process-management-groups
+    with:
+      az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
+      Andor_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Andor_MG_Resource_Id }}
+      Platform_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Platform_MG_Resource_Id }}
+      Connectivity_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Connectivity_MG_Resource_Id }}
+      Identity_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Identity_MG_Resource_Id }}
+      Management_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Management_MG_Resource_Id }}
+      Landing_Zones_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Landing_Zones_MG_Resource_Id }}
+      Corp_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Corp_MG_Resource_Id }}
+      Online_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Online_MG_Resource_Id }}
+      Decommisioned_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Decommisioned_MG_Resource_Id }}
+      Sandbox_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Sandbox_MG_Resource_Id }}
+    secrets: inherit
