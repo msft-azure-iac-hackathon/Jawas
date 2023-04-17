@@ -37,7 +37,7 @@ on:
       Sandbox_MG_Resource_Id:
         description: 'Resource ID of the Sandbox Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Sandbox_MG_Resource_Id }}
-      Top_Management_Group_Id:
+      Top_MG_Id:
         description: 'ID of the Highest Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Top_MG_Id }}
 
