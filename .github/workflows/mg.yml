@@ -7,7 +7,7 @@ on:
       - feat/*
 
 jobs:
-  az-login-oidc:
+  az-management-groups:
     runs-on: [self-hosted, linux]
     environment: jawas
 
