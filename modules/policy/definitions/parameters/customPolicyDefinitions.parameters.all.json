@@ -4,9 +4,6 @@
     "parameters": {
         "parTargetManagementGroupId": {
             "value": "Jawas"
-        },
-        "parTelemetryOptOut": {
-            "value": false
         }
     }
 }
