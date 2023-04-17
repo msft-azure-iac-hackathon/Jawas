@@ -27,4 +27,4 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           client-id: ${{ secrets.CLIENT_ID }}
           allow-no-subscriptions: true
-          enable-AzPSSession: true
+          enable-AzPSSession: false
