@@ -1,11 +1,11 @@
 name: Process Management Groups
 
-on:
-  workflow_call:
-    inputs:
-      az_powershell_min_version:
-        required: true
-        type: string
+on: repository_dispatch
+  # workflow_call:
+  #   inputs:
+  #     az_powershell_min_version:
+  #       required: true
+  #       type: string
 
 jobs:
   deploy-management-groups:
