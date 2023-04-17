@@ -24,7 +24,7 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           client-id: ${{ secrets.CLIENT_ID }}
           allow-no-subscriptions: true
-          enable-AzPSSession: false
+          enable-AzPSSession: true
 
       - shell: pwsh
         name: Ensure correct Az module is installed
