@@ -17,9 +17,9 @@ function createUpdateMG ($mg, $parentId) {
                 $out = Update-AzManagementGroup -GroupName $mg.id -DisplayName $mg.name -parentId $parentId -WarningAction SilentlyContinue
             }
         }
-        
+
     }
-    $GitHubOutPutVariableName = $out.DisplayName.Replace(' ', '_').Replace('-', '_').Replace('.','_') + '_MG_Resource_Id' 
+    $GitHubOutPutVariableName = $out.DisplayName.Replace(' ', '_').Replace('-', '_').Replace('.','_') + '_MG_Resource_Id'
     $GitHubOutPutVariableValue = $out.Id
     Write-Output "$GitHubOutPutVariableName=$GitHubOutPutVariableValue" >> $Env:GITHUB_OUTPUT
     return $out
@@ -27,14 +27,14 @@ function createUpdateMG ($mg, $parentId) {
 
 function updateStructure ($object, $parentId) {
     switch ($object.type) {
-        'subscription' { 
+        'subscription' {
             Write-Output ("Processing Subscription ID [{0}] with name [{1}]..." -f $object.id, $object.name)
             $subscription = Get-AzSubscription -SubscriptionId $object.id -WarningAction SilentlyContinue -ErrorAction Stop
             if ($null -ne $subscription) {
                 New-AzManagementGroupSubscription -SubscriptionId $subscription.Id -GroupName $parentId.split('/')[-1] -WarningAction SilentlyContinue -ErrorAction Stop | Out-Null
             }
         }
-        'managementGroup' { 
+        'managementGroup' {
             Write-Output  ("Processing Management Group ID [{0}] with name [{1}]..." -f $object.id, $object.name)
             $mg = createUpdateMG -mg $object -parentId $parentId
             if ($null -ne $object.children) {
