@@ -1,0 +1,17 @@
+# Configuration
+# -------------
+export TENANT_ID=939e76d1-059e-4930-96cb-5736a55e4a5e
+
+#Login Tenant
+az login --tenant $TENANT_ID
+
+#List subscriptions
+az account list -o table
+
+#whatif
+az deployment tenant what-if --location westeurope --template-file main.bicep --parameters main.parameters.json
+
+#deploy
+az deployment tenant create --name 'mgmt-groups-dev' --location westeurope --template-file main.bicep --parameters dev.parameters.json
+az deployment tenant create --name 'mgmt-groups-prod' --location westeurope --template-file main.bicep --parameters prod.parameters.json
+az deployment tenant create --name 'mgmt-groups-all' --location westeurope --template-file main.bicep --parameters main.parameters.json

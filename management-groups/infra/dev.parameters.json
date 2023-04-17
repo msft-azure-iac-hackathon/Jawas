@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "tier1MgmtGroups": {
+        "value": [
+          {
+            "id": "np-dev",
+            "displayName": "np-dev"
+          }
+        ]
+      },
+      "tier2MgmtGroups": {
+        "value": [
+          {
+            "id": "np-dev-platform",
+            "displayName": "np-dev-platform",
+            "parentId": "np-dev"
+          },
+          {
+            "id": "np-dev-landingzones",
+            "displayName": "np-dev-landingzones",
+            "parentId": "np-dev"
+          },
+          {
+            "id": "np-dev-decommissioned",
+            "displayName": "np-dev-decommissioned",
+            "parentId": "np-dev"
+          },
+          {
+            "id": "np-dev-sandboxes",
+            "displayName": "np-dev-sandboxes",
+            "parentId": "np-dev"
+          },
+          {
+            "id": "np-dev-isolated-partner",
+            "displayName": "np-dev-isolated-partner",
+            "parentId": "np-dev"
+          }
+        ]
+      },
+      "tier3MgmtGroups": {
+        "value": [
+          {
+            "id": "np-dev-connectivity",
+            "displayName": "np-dev-connectivity",
+            "parentId": "np-dev-Platform"
+          },
+          {
+            "id": "np-dev-identity",
+            "displayName": "np-dev-identity",
+            "parentId": "np-dev-platform"
+          },
+          {
+            "id": "np-dev-management",
+            "displayName": "np-dev-management",
+            "parentId": "np-dev-platform"
+          },
+          {
+            "id": "np-dev-corp",
+            "displayName": "np-dev-corp",
+            "parentId": "np-dev-landingzones"
+          },
+          {
+            "id": "np-dev-online",
+            "displayName": "np-dev-online",
+            "parentId": "np-dev-landingzones"
+          }
+        ]
+      },
+      "authForNewMG": {
+        "value": true
+      },
+      "defaultMgId": {
+        "value": ""
+      },
+      "configMGSettings": {
+        "value": true
+      }
+    }
+  }

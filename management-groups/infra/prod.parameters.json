@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "tier1MgmtGroups": {
+        "value": [
+          {
+            "id": "np",
+            "displayName": "np"
+          }
+        ]
+      },
+      "tier2MgmtGroups": {
+        "value": [
+          {
+            "id": "np-platform",
+            "displayName": "np-platform",
+            "parentId": "np"
+          },
+          {
+            "id": "np-landingzones",
+            "displayName": "np-landingzones",
+            "parentId": "np"
+          },
+          {
+            "id": "np-decommissioned",
+            "displayName": "np-decommissioned",
+            "parentId": "np"
+          },
+          {
+            "id": "np-sandboxes",
+            "displayName": "np-sandboxes",
+            "parentId": "np"
+          },
+          {
+            "id": "np-isolated-partner",
+            "displayName": "np-isolated-partner",
+            "parentId": "np"
+          }
+        ]
+      },
+      "tier3MgmtGroups": {
+        "value": [
+          {
+            "id": "np-connectivity",
+            "displayName": "np-connectivity",
+            "parentId": "np-platform"
+          },
+          {
+            "id": "np-identity",
+            "displayName": "np-identity",
+            "parentId": "np-platform"
+          },
+          {
+            "id": "np-management",
+            "displayName": "np-management",
+            "parentId": "np-platform"
+          },
+          {
+            "id": "np-corp",
+            "displayName": "np-corp",
+            "parentId": "np-landingzones"
+          },
+          {
+            "id": "np-online",
+            "displayName": "np-online",
+            "parentId": "np-landingzones"
+          }
+        ]
+      },
+      "authForNewMG": {
+        "value": true
+      },
+      "defaultMgId": {
+        "value": ""
+      },
+      "configMGSettings": {
+        "value": true
+      }
+    }
+  }
