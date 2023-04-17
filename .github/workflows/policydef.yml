@@ -47,7 +47,7 @@ jobs:
     env:
       az_powershell_min_version: ${{ inputs.az_powershell_min_version }}
       # why set these 2 env vars?  They are not used in this workflow
-      top_management_resource_group_id: ${{ inputs.Jawas_MG_Resource_Id }}
+      top_management_resource_group_id: ${{ inputs.Top_MG_Id }}
 
     permissions:
       id-token: write
