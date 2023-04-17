@@ -67,3 +67,10 @@ jobs:
     with:
       Top_Management_Group_Id: ${{ needs.process-management-groups.outputs.Top_MG_Id }}
     secrets: inherit
+
+  deploy-logging:
+    uses: ./.github/workflows/la.yml
+    needs: [process-management-groups, policy-definitions]
+    with:
+      Subscription_Id: '955684df-a4bc-4d6e-a4ec-5f2df5c5b54b'
+    secrets: inherit
