@@ -13,7 +13,11 @@
                     "type": "managementGroup",
                     "name": "Connectivity",
                     "children": [
-
+                        {
+                            "id": "28c5fc8d-980e-4b48-9044-f927757113d1",
+                            "type": "subscription",
+                            "name": "Connectivity"
+                        }
                     ]
                 },
                 {
@@ -29,6 +33,11 @@
                     "type": "managementGroup",
                     "name": "Management",
                     "children": [
+                        {
+                            "id": "955684df-a4bc-4d6e-a4ec-5f2df5c5b54b",
+                            "type": "subscription",
+                            "name": "Management"
+                        }
                     ]
                 }
             ]
