@@ -4,9 +4,6 @@
   "parameters": {
     "parAssignableScopeManagementGroupId": {
       "value": "Jawas"
-    },
-    "parTelemetryOptOut": {
-      "value": false
     }
   }
 }
