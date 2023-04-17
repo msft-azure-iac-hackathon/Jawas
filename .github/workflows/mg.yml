@@ -1,0 +1,63 @@
+name: Process az login oidc
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - feat/*
+
+jobs:
+  az-login-oidc:
+    runs-on: [self-hosted, linux]
+    environment: jawas
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          allow-no-subscriptions: true
+          enable-AzPSSession: false
+
+      - shell: pwsh
+        name: Ensure correct Az module is installed
+        run: |
+          if (Get-Module Az -ListAvailable | Where-Object { $_.Version -eq $env:az_powershell_min_version }) {
+            Write-Host "Az module version $env:az_powershell_min_version is already installed"
+            Import-Module Az -MinimumVersion $env:az_powershell_min_version
+          }
+          else {
+              Write-Host "Az module version $env:az_powershell_min_version is going to be installed"
+              Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser -Repository PSGallery -MinimumVersion $env:az_powershell_min_version
+          }
+      
+      - shell: pwsh
+        name: Processing Subscriptions and Management Groups
+        id: managementGroups
+        run: |
+          ./modules/managementGroups/process-management-groups-structure.ps1
+      
+      - shell: pwsh
+        name: Reading environment variables
+        run: |
+          Get-ChildItem env: | fl
+          
+    outputs:
+          Top_MG_Id: ${{ steps.managementGroups.outputs.top_management_group_id }}
+          Andor_MG_Resource_Id: ${{ steps.managementGroups.outputs.Andor_MG_Resource_Id }}
+          Platform_MG_Resource_Id: ${{ steps.managementGroups.outputs.Platform_MG_Resource_Id }}
+          Connectivity_MG_Resource_Id: ${{ steps.managementGroups.outputs.Connectivity_MG_Resource_Id }}
+          Identity_MG_Resource_Id: ${{ steps.managementGroups.outputs.Identity_MG_Resource_Id }}
+          Management_MG_Resource_Id: ${{ steps.managementGroups.outputs.Management_MG_Resource_Id }}
+          Landing_Zones_MG_Resource_Id: ${{ steps.managementGroups.outputs.Landing_Zones_MG_Resource_Id }}
+          Corp_MG_Resource_Id: ${{ steps.managementGroups.outputs.Corp_MG_Resource_Id }}
+          Online_MG_Resource_Id: ${{ steps.managementGroups.outputs.Online_MG_Resource_Id }}
+          Decommisioned_MG_Resource_Id: ${{ steps.managementGroups.outputs.Decommisioned_MG_Resource_Id }}
+          Sandbox_MG_Resource_Id: ${{ steps.managementGroups.outputs.Sandbox_MG_Resource_Id }}
