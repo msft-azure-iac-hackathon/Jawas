@@ -5,7 +5,7 @@ on:
       - main
       - feat/*
 
-  workflow_dispatch:
+  # workflow_dispatch:
 
 jobs:
   az-login-oidc:
