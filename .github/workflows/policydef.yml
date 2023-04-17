@@ -12,6 +12,9 @@ on:
       Platform_MG_Resource_Id:
         required: true
         type: string
+      Top_MG_Id:
+        required: true
+        type: string
       Connectivity_MG_Resource_Id:
         required: true
         type: string
