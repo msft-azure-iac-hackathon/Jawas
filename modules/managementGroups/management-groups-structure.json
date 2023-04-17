@@ -62,13 +62,13 @@
             ]
         },
         {
-            "id": "b2b8b176-30c1-4bbd-a33d-542bc080c3d8",
+            "id": "b2b8b176-30c1-4bbd-a33d-542bc080c128",
             "type": "managementGroup",
             "name": "Decommisioned",
             "children": []
         },
         {
-            "id": "7b92f3d7-993a-482c-b115-65114f0f6639",
+            "id": "7b92f3d7-993a-482c-b115-65114f0f6239",
             "type": "managementGroup",
             "name": "Sandbox",
             "children": []
