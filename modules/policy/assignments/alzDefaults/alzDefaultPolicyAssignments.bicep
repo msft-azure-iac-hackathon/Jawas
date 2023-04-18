@@ -60,7 +60,8 @@ param parPrivateDnsResourceGroupId string = ''
 @sys.description('Set Parameter to true to Opt-out of deployment telemetry')
 param parTelemetryOptOut bool = false
 
-var varLogAnalyticsWorkspaceName = split(parLogAnalyticsWorkspaceResourceId, '/')[7]
+param parLogAnalyticsWorkspaceName string
+// = split(parLogAnalyticsWorkspaceResourceId, '/')[8]
 
 var varLogAnalyticsWorkspaceResourceGroupName = split(parLogAnalyticsWorkspaceResourceId, '/')[4]
 
@@ -589,7 +590,7 @@ module modPolicyAssignmentMgmtDeployLogAnalytics '../../../policy/assignments/po
         value: varLogAnalyticsWorkspaceResourceGroupName
       }
       workspaceName: {
-        value: varLogAnalyticsWorkspaceName
+        value: parLogAnalyticsWorkspaceName
       }
       workspaceRegion: {
         value: parLogAnalyticsWorkSpaceAndAutomationAccountLocation
