@@ -6,6 +6,10 @@ on:
       Subscription_Id:
         required: true
         type: string
+    outputs:
+      outLogAnalyticsWorkspaceId:
+        description: 'Resource ID of the Jawas Management Group'
+        value: ${{ jobs.deploy-central-logging.outputs.outLogAnalyticsWorkspaceId }}
 
 jobs:
   deploy-central-logging:
@@ -16,6 +20,7 @@ jobs:
       contents: read
 
     steps:
+
       - uses: actions/checkout@v3
 
       - uses: azure/login@v1
@@ -45,3 +50,5 @@ jobs:
           resourceGroupName: ${{ steps.resourceGroupLogging.outputs.resourceGroupName }}
           template: modules/logging/logging.bicep
           parameters: modules/logging/parameters/logging.parameters.all.json
+    outputs:
+      outLogAnalyticsWorkspaceId: ${{ steps.deployCentralLogging.outputs.outLogAnalyticsWorkspaceId }}
