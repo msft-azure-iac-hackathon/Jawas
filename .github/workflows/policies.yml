@@ -94,4 +94,5 @@ jobs:
             parLogAnalyticsWorkspaceResourceId="${{inputs.LogAnalytics_Workspace_Id}}"
             parLogAnalyticsWorkspaceLogRetentionInDays="30"
             parAutomationAccountName="${{ inputs.Automation_Account_Name }}"
+          failOnStdErr: false
 
