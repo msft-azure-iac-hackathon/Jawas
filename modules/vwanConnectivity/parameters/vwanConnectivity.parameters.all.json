@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "parLocation": {
-      "value": "eastus"
+      "value": "westeurope"
     },
     "parCompanyPrefix": {
-      "value": "alz"
+      "value": "jawas"
     },
     "parAzFirewallTier": {
       "value": "Standard"
@@ -18,25 +18,25 @@
       "value": true
     },
     "parVirtualWanName": {
-      "value": "alz-vwan-eastus"
+      "value": "jawas-vwan-westeu"
     },
     "parVirtualWanHubName": {
-      "value": "alz-vhub"
+      "value": "jawas-vhub"
     },
     "parVpnGatewayName": {
-      "value": "alz-vpngw"
+      "value": "jawas-vpngw"
     },
     "parExpressRouteGatewayName": {
-      "value": "alz-ergw"
+      "value": "jawas-ergw"
     },
     "parAzFirewallName": {
-      "value": "alz-fw"
+      "value": "jawas-fw"
     },
     "parAzFirewallAvailabilityZones": {
       "value": []
     },
     "parAzFirewallPoliciesName": {
-      "value": "alz-azfwpolicy-eastus"
+      "value": "jawas-azfwpolicy-westeu"
     },
     "parVirtualWanHubs": {
       "value": [
@@ -45,7 +45,7 @@
           "parExpressRouteGatewayEnabled": true,
           "parAzFirewallEnabled": true,
           "parVirtualHubAddressPrefix": "10.100.0.0/23",
-          "parHubLocation": "eastus",
+          "parHubLocation": "westeurope",
           "parHubRoutingPreference": "ExpressRoute",
           "parVirtualRouterAutoScaleConfiguration": 2
         }
@@ -61,7 +61,7 @@
       "value": true
     },
     "parDdosPlanName": {
-      "value": "alz-ddos-plan"
+      "value": "jawas-ddos-plan"
     },
     "parPrivateDnsZonesEnabled": {
       "value": true
