@@ -29,7 +29,7 @@
     "Online_MG_Resource_Id": {
       "value": "alz-online"
     },
-      "Decommisioned_MG_Resource_Id": {
+      "Decommissioned_MG_Resource_Id": {
       "value": "alz-decommisioned"
     },
     "Sandbox_MG_Resource_Id": {
