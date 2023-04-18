@@ -7,7 +7,7 @@ metadata description = 'This policy assignment will assign the ALZ Default Polic
 param parTopLevelManagementGroupPrefix string = 'alz'
 
 @sys.description('Toplevel MG for the ALZ management group hierarchy.')
-param Top_MG_Resource_Id string = 'alz'
+param Top_MG_Id string = 'alz'
 
 @sys.description('Platform MG for the ALZ management group hierarchy.')
 param Platform_MG_Resource_Id string = 'alz-platform'
@@ -250,7 +250,7 @@ var varRbacRoleDefinitionIds = {
 
 // Management Groups Variables - Used For Policy Assignments
 var varManagementGroupIds = {
-  intRoot: Top_MG_Resource_Id
+  intRoot: Top_MG_Id
   platform: Platform_MG_Resource_Id
   platformManagement: Management_MG_Resource_Id
   platformConnectivity: Connectivity_MG_Resource_Id
