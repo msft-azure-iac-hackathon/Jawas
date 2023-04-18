@@ -51,10 +51,10 @@
       "value": "joedel@microsoft.com"
     },
     "parDdosProtectionPlanId": {
-      "value": "/subscriptions/573de0a7-29d4-4640-ad7d-05fe883fbae9/resourceGroups/rg-alz-vwan-001/providers/Microsoft.Network/ddosProtectionPlans/alz-ddos-plan"
+      "value": "/subscriptions/28c5fc8d-980e-4b48-9044-f927757113d1/resourceGroups/rg-alz-vwan-001/providers/Microsoft.Network/ddosProtectionPlans/alz-ddos-plan"
     },
     "parPrivateDnsResourceGroupId": {
-      "value": "/subscriptions/573de0a7-29d4-4640-ad7d-05fe883fbae9/resourceGroups/rg-alz-vwan-001"
+      "value": "/subscriptions/28c5fc8d-980e-4b48-9044-f927757113d1/resourceGroups/rg-alz-vwan-001"
     },
     "parTelemetryOptOut": {
       "value": false
