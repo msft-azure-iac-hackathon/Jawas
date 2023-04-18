@@ -253,15 +253,15 @@ var varRbacRoleDefinitionIds = {
 // Management Groups Variables - Used For Policy Assignments
 var varManagementGroupIds = {
   intRoot: Top_MG_Id
-  platform: Platform_MG_Resource_Id
-  platformManagement: Management_MG_Resource_Id
-  platformConnectivity: Connectivity_MG_Resource_Id
-  platformIdentity: Identity_MG_Resource_Id
-  landingZones: Landing_Zones_MG_Resource_Id
-  landingZonesCorp: Corp_MG_Resource_Id
-  landingZonesOnline: Online_MG_Resource_Id
-  decommissioned: Decommissioned_MG_Resource_Id
-  sandbox: Sandbox_MG_Resource_Id
+  platform: split(Platform_MG_Resource_Id, '/')[4] 
+  platformManagement: split(Management_MG_Resource_Id, '/')[4] 
+  platformConnectivity: split(Connectivity_MG_Resource_Id, '/')[4] 
+  platformIdentity: split(Identity_MG_Resource_Id, '/')[4] 
+  landingZones: split(Landing_Zones_MG_Resource_Id, '/')[4] 
+  landingZonesCorp: split(Corp_MG_Resource_Id, '/')[4] 
+  landingZonesOnline: split(Online_MG_Resource_Id, '/')[4] 
+  decommissioned: split(Decommissioned_MG_Resource_Id, '/')[4] 
+  sandbox: split(Sandbox_MG_Resource_Id, '/')[4] 
 }
 
 var varTopLevelManagementGroupResourceId = '/providers/Microsoft.Management/managementGroups/${varManagementGroupIds.intRoot}'

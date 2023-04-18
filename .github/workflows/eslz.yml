@@ -58,7 +58,6 @@ jobs:
 
   policy-assignments:
     uses: ./.github/workflows/policies.yml
-    if: false
     needs: [process-management-groups, policy-definitions, deploy-logging]
     with:
       Top_MG_Id: ${{ needs.process-management-groups.outputs.Top_MG_Id }}
