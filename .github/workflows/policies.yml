@@ -78,7 +78,7 @@ jobs:
           managementgroupid: ${{ inputs.Jawas_MG_Resource_Id }}
           template: modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep
           parameters: >
-            modules/policy/assignments/alzDefault/parameters/alzDefaultPolicyAssignments.parameters.all.json
+            modules/policy/assignments/alzDefaults/parameters/alzDefaultPolicyAssignments.parameters.all.json
             parTopLevelManagementGroupPrefix="Jawas"
             Top_MG_Id="${{ inputs.Top_MG_Id }}"
             Platform_MG_Resource_Id="${{ inputs.Platform_MG_Resource_Id }}"
