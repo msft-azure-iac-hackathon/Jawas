@@ -32,7 +32,7 @@ on:
         description: 'Resource ID of the Online Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Online_MG_Resource_Id }}
       Decommissioned_MG_Resource_Id:
-        description: 'Resource ID of the Decommisioned Management Group'
+        description: 'Resource ID of the Decommissioned Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Decommissioned_MG_Resource_Id }}
       Sandbox_MG_Resource_Id:
         description: 'Resource ID of the Sandbox Management Group'
