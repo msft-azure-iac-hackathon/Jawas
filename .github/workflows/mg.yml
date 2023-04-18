@@ -31,9 +31,9 @@ on:
       Online_MG_Resource_Id:
         description: 'Resource ID of the Online Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Online_MG_Resource_Id }}
-      Decommisioned_MG_Resource_Id:
+      Decommissioned_MG_Resource_Id:
         description: 'Resource ID of the Decommisioned Management Group'
-        value: ${{ jobs.deploy-management-groups.outputs.Decommisioned_MG_Resource_Id }}
+        value: ${{ jobs.deploy-management-groups.outputs.Decommissioned_MG_Resource_Id }}
       Sandbox_MG_Resource_Id:
         description: 'Resource ID of the Sandbox Management Group'
         value: ${{ jobs.deploy-management-groups.outputs.Sandbox_MG_Resource_Id }}
@@ -96,5 +96,5 @@ jobs:
           Landing_Zones_MG_Resource_Id: ${{ steps.managementGroups.outputs.Landing_Zones_MG_Resource_Id }}
           Corp_MG_Resource_Id: ${{ steps.managementGroups.outputs.Corp_MG_Resource_Id }}
           Online_MG_Resource_Id: ${{ steps.managementGroups.outputs.Online_MG_Resource_Id }}
-          Decommisioned_MG_Resource_Id: ${{ steps.managementGroups.outputs.Decommisioned_MG_Resource_Id }}
+          Decommissioned_MG_Resource_Id: ${{ steps.managementGroups.outputs.Decommissioned_MG_Resource_Id }}
           Sandbox_MG_Resource_Id: ${{ steps.managementGroups.outputs.Sandbox_MG_Resource_Id }}
