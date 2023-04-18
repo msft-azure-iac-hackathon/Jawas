@@ -33,7 +33,7 @@ on:
       Online_MG_Resource_Id:
         required: true
         type: string
-      Decommisioned_MG_Resource_Id:
+      Decommissioned_MG_Resource_Id:
         required: true
         type: string
       Sandbox_MG_Resource_Id:
