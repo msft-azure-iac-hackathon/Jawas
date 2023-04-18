@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.1",
     "parameters": {
         "resourceGroupName": {
-            "value": "rg-we-p-jawas-logging-001"
+            "value": "rg-we-p-jawas-logging-002"
         },
         "resourceGroupLocation": {
             "value": "westeurope"
