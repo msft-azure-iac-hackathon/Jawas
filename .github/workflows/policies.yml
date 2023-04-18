@@ -76,7 +76,7 @@ jobs:
           scope: managementgroup
           region: westeurope
           managementgroupid: ${{ inputs.Jawas_MG_Resource_Id }}
-          template: modules/policy/assignments/alzDefault/alzDefaultPolicyAssignments.bicep
+          template: modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep
           parameters: >
             modules/policy/assignments/alzDefault/parameters/alzDefaultPolicyAssignments.parameters.all.json
             parTopLevelManagementGroupPrefix="Jawas"
