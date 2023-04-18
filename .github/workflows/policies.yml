@@ -33,7 +33,7 @@ on:
       Online_MG_Resource_Id:
         required: true
         type: string
-      Decommisioned_MG_Resource_Id:
+      Decommissioned_MG_Resource_Id:
         required: true
         type: string
       Sandbox_MG_Resource_Id:
@@ -88,7 +88,7 @@ jobs:
             Landing_Zones_MG_Resource_Id="${{ inputs.Landing_Zones_MG_Resource_Id }}"
             Corp_MG_Resource_Id="${{ inputs.Corp_MG_Resource_Id }}"
             Online_MG_Resource_Id="${{ inputs.Online_MG_Resource_Id }}"
-            Decommisioned_MG_Resource_Id="${{ inputs.Decommisioned_MG_Resource_Id }}"
+            Decommissioned_MG_Resource_Id="${{ inputs.Decommissioned_MG_Resource_Id }}"
             Sandbox_MG_Resource_Id="${{ inputs.Sandbox_MG_Resource_Id }}"
             parLogAnalyticsWorkSpaceAndAutomationAccountLocation="westeurope"
             parLogAnalyticsWorkspaceResourceId="${{inputs.LogAnalytics_Workspace_Id}}"
