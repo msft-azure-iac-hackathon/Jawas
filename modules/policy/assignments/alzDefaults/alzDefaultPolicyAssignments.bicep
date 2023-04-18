@@ -63,7 +63,8 @@ param parTelemetryOptOut bool = false
 param parLogAnalyticsWorkspaceName string
 // = split(parLogAnalyticsWorkspaceResourceId, '/')[8]
 
-var varLogAnalyticsWorkspaceResourceGroupName = split(parLogAnalyticsWorkspaceResourceId, '/')[4]
+param parLogAnalyticsWorkspaceResourceGroupName string
+// var varLogAnalyticsWorkspaceResourceGroupName = split(parLogAnalyticsWorkspaceResourceId, '/')[4]
 
 // Customer Usage Attribution Id
 var varCuaid = '98cef979-5a6b-403b-83c7-10c8f04ac9a2'
@@ -587,7 +588,7 @@ module modPolicyAssignmentMgmtDeployLogAnalytics '../../../policy/assignments/po
     parPolicyAssignmentParameters: varPolicyAssignmentDeployLogAnalytics.libDefinition.properties.parameters
     parPolicyAssignmentParameterOverrides: {
       rgName: {
-        value: varLogAnalyticsWorkspaceResourceGroupName
+        value: parLogAnalyticsWorkspaceResourceGroupName
       }
       workspaceName: {
         value: parLogAnalyticsWorkspaceName

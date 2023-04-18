@@ -10,6 +10,9 @@ on:
       LogAnalytics_Workspace_Name:
         description: 'Resource ID of the Jawas Management Group'
         value: ${{ jobs.deploy-central-logging.outputs.outLogAnalyticsWorkspaceName }}
+      LogAnalytics_ResourceGroup_Name:
+        description: 'Resource ID of the Jawas Resource Group'
+        value: ${{ jobs.deploy-central-logging.outputs.outLogAnalyticsResourceGroupName }}
       LogAnalytics_Workspace_Id:
         description: 'Resource ID of the Jawas Management Group'
         value: ${{ jobs.deploy-central-logging.outputs.outLogAnalyticsWorkspaceId }}
@@ -57,6 +60,7 @@ jobs:
           template: modules/logging/logging.bicep
           parameters: modules/logging/parameters/logging.parameters.all.json
     outputs:
+      outLogAnalyticsResourceGroupName: ${{ steps.resourceGroupLogging.outputs.resourceGroupName }}
       outLogAnalyticsWorkspaceName: ${{ steps.deployCentralLogging.outputs.outLogAnalyticsWorkspaceName }}
       outLogAnalyticsWorkspaceId: ${{ steps.deployCentralLogging.outputs.outLogAnalyticsWorkspaceId }}
       outAutomationAccountName: ${{ steps.deployCentralLogging.outputs.outAutomationAccountName }}

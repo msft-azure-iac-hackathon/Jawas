@@ -40,11 +40,14 @@ on:
         required: true
         type: string
       LogAnalytics_Workspace_Id:
-          required: true
-          type: string
+        required: true
+        type: string
       LogAnalytics_Workspace_Name:
-          required: true
-          type: string
+        required: true
+        type: string
+      LogAnalytics_ResourceGroup_Name:
+        required: true
+        type: string
       Automation_Account_Name:
         required: true
         type: string
@@ -98,4 +101,5 @@ jobs:
             parLogAnalyticsWorkspaceLogRetentionInDays="30"
             parAutomationAccountName="${{ inputs.Automation_Account_Name }}"
             parLogAnalyticsWorkspaceName="${{ inputs.LogAnalytics_Workspace_Name }}"
+            parLogAnalyticsWorkspaceResourceGroupName="${{ inputs.LogAnalytics_ResourceGroup_Name }}"
 
