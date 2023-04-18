@@ -39,6 +39,12 @@ on:
       Sandbox_MG_Resource_Id:
         required: true
         type: string
+      LogAnalytics_Workspace_Id:
+        required: true
+        type: string
+      Automation_Account_Name:
+        required: true
+        type: string
 
 jobs:
   deploy-policy-definitions-and-assignments:
@@ -87,4 +93,5 @@ jobs:
             parLogAnalyticsWorkSpaceAndAutomationAccountLocation="westeurope"
             parLogAnalyticsWorkspaceResourceId="${{inputs.LogAnalytics_Workspace_Id}}"
             parLogAnalyticsWorkspaceLogRetentionInDays="30"
+            parAutomationAccountName="${{ inputs.Automation_Account_Name }}"
 
