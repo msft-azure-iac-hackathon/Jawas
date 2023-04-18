@@ -60,7 +60,7 @@ param parPrivateDnsResourceGroupId string = ''
 @sys.description('Set Parameter to true to Opt-out of deployment telemetry')
 param parTelemetryOptOut bool = false
 
-var varLogAnalyticsWorkspaceName = split(parLogAnalyticsWorkspaceResourceId, '/')[8]
+var varLogAnalyticsWorkspaceName = split(parLogAnalyticsWorkspaceResourceId, '/')[7]
 
 var varLogAnalyticsWorkspaceResourceGroupName = split(parLogAnalyticsWorkspaceResourceId, '/')[4]
 
