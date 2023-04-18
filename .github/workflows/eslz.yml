@@ -38,7 +38,7 @@ jobs:
       Landing_Zones_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Landing_Zones_MG_Resource_Id }}
       Corp_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Corp_MG_Resource_Id }}
       Online_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Online_MG_Resource_Id }}
-      Decommissioned_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Decommissioned_MG_Resource_Id }}
+      Decommissioned_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Decommisioned_MG_Resource_Id }}
       Sandbox_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Sandbox_MG_Resource_Id }}
     secrets: inherit
 
@@ -70,7 +70,7 @@ jobs:
       Landing_Zones_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Landing_Zones_MG_Resource_Id }}
       Corp_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Corp_MG_Resource_Id }}
       Online_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Online_MG_Resource_Id }}
-      Decommissioned_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Decommissioned_MG_Resource_Id }}
+      Decommissioned_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Decommisioned_MG_Resource_Id }}
       Sandbox_MG_Resource_Id: ${{ needs.process-management-groups.outputs.Sandbox_MG_Resource_Id }}
       LogAnalytics_Workspace_Id: ${{ needs.deploy-logging.outputs.LogAnalytics_Workspace_Id }}
       Automation_Account_Name: ${{needs.deploy-logging.outputs.Automation_Account_Name}}
