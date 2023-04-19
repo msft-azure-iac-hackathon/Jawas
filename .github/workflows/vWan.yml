@@ -55,7 +55,7 @@ jobs:
           region: westeurope
           resourceGroupName: ${{ steps.resourceGroupVWan.outputs.resourceGroupName }}
           template: modules/spokeNetworking/spokeNetworking.bicep
-          parameters: modules/spokeNetworking/spokeNetworking.parameters.all.json
+          parameters: modules/spokeNetworking/parameters/spokeNetworking.parameters.all.json
 
       - uses: azure/arm-deploy@v1
         name: Deploy vWan vNet peering
@@ -64,7 +64,7 @@ jobs:
           scope: resourcegroup
           region: westeurope
           resourceGroupName: ${{ steps.resourceGroupVWan.outputs.resourceGroupName }}
-          template: modules/vnetPeeringVwan/vnetPeeringVwan.bicep
+          template: modules/vnetPeeringVwan/parameters/vnetPeeringVwan.bicep
           parameters: >
             modules/vnetPeeringVwan/vnetPeeringVwan.parameters.all.json
             parVirtualWanHubResourceId="${{ steps.deployvWan.outputs.outHubVirtualNetworkConnectionResourceI }}"
