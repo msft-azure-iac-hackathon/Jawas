@@ -1,7 +1,7 @@
 name: Deploy virtual WAN Connectivity
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       Subscription_Id:
         required: true
