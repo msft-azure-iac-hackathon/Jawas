@@ -59,5 +59,17 @@ jobs:
           template: modules/day3/vNet/nsg.json
           parameters: modules/day3/vNet/parameters/nsg.parameters.json
 
-    outputs:
-      networkSecurityGroupID: ${{ steps.nsg.outputs.networkSecurityGroupID }}
+      - uses: azure/arm-deploy@v1
+        name: Create the vNet
+        id: vNet
+        with:
+          scope: resourcegroup
+          region: westeurope
+          resourceGroupName: ${{ steps.vNetResourceGroup.outputs.resourceGroupName }}
+          template: modules/day3/vNet/vnet.json
+          parameters: >
+            modules/day3/vNet/parameters/vnet.parameters.json
+            networkSecurityGroupID="${{ steps.nsg.outputs.networkSecurityGroupID }}"
+
+    # outputs:
+    #   networkSecurityGroupID: ${{ steps.nsg.outputs.networkSecurityGroupID }}
