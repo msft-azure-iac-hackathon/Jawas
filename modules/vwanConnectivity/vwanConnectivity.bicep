@@ -205,7 +205,7 @@ resource resAzureFirewall 'Microsoft.Network/azureFirewalls@2022-05-01' = [for (
   name: '${parAzFirewallName}-${hub.parHubLocation}'
   location: hub.parHubLocation
   tags: parTags
-  zones: (!empty(parAzFirewallAvailabilityZones) ? parAzFirewallAvailabilityZones : json('null'))
+  zones: (!empty(parAzFirewallAvailabilityZones) ? parAzFirewallAvailabilityZones : null)
   properties: {
     hubIPAddresses: {
       publicIPs: {
@@ -233,23 +233,23 @@ resource resDdosProtectionPlan 'Microsoft.Network/ddosProtectionPlans@2021-08-01
 }
 
 // Private DNS Zones cannot be linked to the Virtual WAN Hub today however, they can be linked to spokes as they are normal VNets as per https://docs.microsoft.com/azure/virtual-wan/howto-private-link
-module modPrivateDnsZones '../privateDnsZones/privateDnsZones.bicep' = if (parPrivateDnsZonesEnabled) {
-  name: 'deploy-Private-DNS-Zones'
-  scope: resourceGroup(parPrivateDnsZonesResourceGroup)
-  params: {
-    parLocation: parLocation
-    parTags: parTags
-    parVirtualNetworkIdToLink: parVirtualNetworkIdToLink
-    parPrivateDnsZones: parPrivateDnsZones
-  }
-}
+// module modPrivateDnsZones '../privateDnsZones/privateDnsZones.bicep' = if (parPrivateDnsZonesEnabled) {
+//   name: 'deploy-Private-DNS-Zones'
+//   scope: resourceGroup(parPrivateDnsZonesResourceGroup)
+//   params: {
+//     parLocation: parLocation
+//     parTags: parTags
+//     parVirtualNetworkIdToLink: parVirtualNetworkIdToLink
+//     parPrivateDnsZones: parPrivateDnsZones
+//   }
+// }
 
 
-// Optional Deployment for Customer Usage Attribution
-module modCustomerUsageAttribution '../../CRML/customerUsageAttribution/cuaIdResourceGroup.bicep' = if (!parTelemetryOptOut) {
-  name: 'pid-${varCuaid}-${uniqueString(parLocation)}'
-  params: {}
-}
+// // Optional Deployment for Customer Usage Attribution
+// module modCustomerUsageAttribution '../../CRML/customerUsageAttribution/cuaIdResourceGroup.bicep' = if (!parTelemetryOptOut) {
+//   name: 'pid-${varCuaid}-${uniqueString(parLocation)}'
+//   params: {}
+// }
 
 
 // Output Virtual WAN name and ID
@@ -269,4 +269,4 @@ output outVirtualHubId array = [ for (hub, i) in parVirtualWanHubs: {
 output outDdosPlanResourceId string = resDdosProtectionPlan.id
 
 // Output Private DNS Zones
-output outPrivateDnsZones array = (parPrivateDnsZonesEnabled ? modPrivateDnsZones.outputs.outPrivateDnsZones : [])
+// output outPrivateDnsZones array = (parPrivateDnsZonesEnabled ? modPrivateDnsZones.outputs.outPrivateDnsZones : [])
