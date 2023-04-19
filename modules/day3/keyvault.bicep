@@ -14,7 +14,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2019-09-01' = {
     accessPolicies: [
       {
         tenantId: parTenantId
-        objectId: 'objectId'
+        objectId: parUAMI
         permissions: {
           keys: [
             'get'

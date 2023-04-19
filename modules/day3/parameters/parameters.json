@@ -11,14 +11,8 @@
       "parTenantId": {
         "value": "8724b060-fd35-45e7-ae2c-d093c289ef5a"
       },
-      "parAutomationAccountName": {
-        "value": "jawas-automation-account"
-      },
-      "parAutomationAccountLocation": {
-        "value": "westeurope"
-      },
-      "parAutomationAccountUseManagedIdentity": {
-        "value": true
+      "parUAMI": {
+        "value": ""
       },
       "parTags": {
         "value": {
