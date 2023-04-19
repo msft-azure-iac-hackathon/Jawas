@@ -75,3 +75,10 @@ jobs:
       LogAnalytics_Workspace_Id: ${{ needs.deploy-logging.outputs.LogAnalytics_Workspace_Id }}
       Automation_Account_Name: ${{needs.deploy-logging.outputs.Automation_Account_Name}}
     secrets: inherit
+
+  deploy-networking:
+    uses: ./.github/workflows/vWan.yml
+    needs: [process-management-groups]
+    with:
+      Subscription_Id: '28c5fc8d-980e-4b48-9044-f927757113d1'
+    secrets: inherit
