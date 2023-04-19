@@ -50,14 +50,14 @@ jobs:
           parameters: modules/logging/parameters/resourceGroup.parameters.json
 
       - uses: azure/arm-deploy@v1
-        name: Create the Virtual Network
-        id: vNetHub
+        name: Create the NSG
+        id: nsg
         with:
           scope: resourcegroup
           region: westeurope
-          subscriptionId: ${{ inputs.Subscription_Id }}
-          template: modules/day3/modules/vNet/vnet.json
-          parameters: modules/day3/modules/vNet/parameters/vnet.parameters.json
+          resourceGroupName: ${{ steps.vNetResourceGroup.outputs.resourceGroupName }}
+          template: modules/day3/modules/vNet/nsg.json
+          parameters: modules/day3/modules/vNet/parameters/nsg.parameters.json
 
     outputs:
-      networkSecurityGroupID: ${{ steps.vnetHub.outputs.networkSecurityGroupID }}
+      networkSecurityGroupID: ${{ steps.nsg.outputs.networkSecurityGroupID }}
