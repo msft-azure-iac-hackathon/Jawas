@@ -56,8 +56,8 @@ jobs:
           scope: resourcegroup
           region: westeurope
           resourceGroupName: ${{ steps.vNetResourceGroup.outputs.resourceGroupName }}
-          template: modules/day3/modules/vNet/nsg.json
-          parameters: modules/day3/modules/vNet/parameters/nsg.parameters.json
+          template: modules/day3/vNet/nsg.json
+          parameters: modules/day3/vNet/parameters/nsg.parameters.json
 
     outputs:
       networkSecurityGroupID: ${{ steps.nsg.outputs.networkSecurityGroupID }}
