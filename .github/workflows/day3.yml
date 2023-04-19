@@ -69,7 +69,7 @@ jobs:
           template: modules/day3/vNet/vnet.json
           parameters: >
             modules/day3/vNet/parameters/vnet.parameters.json
-            networkSecurityGroupID="${{ steps.nsg.outputs.networkSecurityGroupID }}"
+            networkSecurityGroupID=${{ steps.nsg.outputs.networkSecurityGroupID }}
 
     # outputs:
     #   networkSecurityGroupID: ${{ steps.nsg.outputs.networkSecurityGroupID }}
