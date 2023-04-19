@@ -2,8 +2,11 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
-        "networkSecurityGroupName": {
-            "value": "nsg-p-we-jawas-01"
+        "resourceGroupName": {
+            "value": "rg-we-p-jawas-vnet-01"
+        },
+        "resourceGroupLocation": {
+            "value": "westeurope"
         }
     }
 }
