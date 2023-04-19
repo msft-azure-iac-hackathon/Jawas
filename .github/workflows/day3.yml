@@ -20,6 +20,7 @@ on:
 jobs:
   vNet:
     runs-on: [self-hosted, linux]
+    environment: jawas
 
     permissions:
       id-token: write
