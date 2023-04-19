@@ -2,9 +2,9 @@ name: Deploy Azure Enterprise Scale Landing Zone
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   process-management-groups:

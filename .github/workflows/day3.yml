@@ -1,0 +1,62 @@
+name: Deploy NSG & vNet
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - feat/*
+  workflow_call:
+    inputs:
+      Subscription_Id:
+        required: true
+        type: string
+        default: "28c5fc8d-980e-4b48-9044-f927757113d1"
+    # outputs:
+    #   LogAnalytics_Workspace_Name:
+    #     description: 'Resource ID of the Jawas Management Group'
+    #     value: ${{ jobs.deploy-central-logging.outputs.outLogAnalyticsWorkspaceName }}
+
+jobs:
+  vNet:
+    runs-on: [self-hosted, linux]
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          subscription-id: ${{ inputs.Subscription_Id }}
+          allow-no-subscriptions: true
+          enable-AzPSSession: true
+
+      - uses: azure/arm-deploy@v1
+        name: Create the Resource Group for vNet
+        id: vNetResourceGroup
+        with:
+          scope: subscription
+          region: westeurope
+          subscriptionId: ${{ inputs.Subscription_Id }}
+          template: ARMtemplates/resourceGroup.json
+          parameters: modules/logging/parameters/resourceGroup.parameters.json
+
+      - uses: azure/arm-deploy@v1
+        name: Create the Virtual Network
+        id: vNetHub
+        with:
+          scope: resourcegroup
+          region: westeurope
+          subscriptionId: ${{ inputs.Subscription_Id }}
+          template: modules/day3/modules/vNet/vnet.json
+          parameters: modules/day3/modules/vNet/parameters/vnet.parameters.json
+
+    outputs:
+      networkSecurityGroupID: ${{ steps.vnetHub.outputs.networkSecurityGroupID }}

@@ -3,16 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "parKeyVaultName": {
-        "value": "jawaskv001"
+        "value": "kv-jawas-001"
       },
       "parKeyVaultLocation": {
         "value": "westeurope"
       },
       "parTenantId": {
         "value": "8724b060-fd35-45e7-ae2c-d093c289ef5a"
-      },
-      "parUAMI": {
-        "value": ""
       },
       "parTags": {
         "value": {
