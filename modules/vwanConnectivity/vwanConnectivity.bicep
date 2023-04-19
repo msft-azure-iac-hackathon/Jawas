@@ -80,26 +80,26 @@ param parDdosEnabled bool = true
 @sys.description('DDoS Plan Name.')
 param parDdosPlanName string = '${parCompanyPrefix}-ddos-plan'
 
-@sys.description('Switch to enable/disable Private DNS Zones deployment.')
-param parPrivateDnsZonesEnabled bool = true
+// @sys.description('Switch to enable/disable Private DNS Zones deployment.')
+// param parPrivateDnsZonesEnabled bool = true
 
-@sys.description('Resource Group Name for Private DNS Zones.')
-param parPrivateDnsZonesResourceGroup string = resourceGroup().name
+// @sys.description('Resource Group Name for Private DNS Zones.')
+// param parPrivateDnsZonesResourceGroup string = resourceGroup().name
 
-@sys.description('Array of DNS Zones to provision in Hub Virtual Network.')
-param parPrivateDnsZones array = []
+// @sys.description('Array of DNS Zones to provision in Hub Virtual Network.')
+// param parPrivateDnsZones array = []
 
-@sys.description('Resource ID of VNet for Private DNS Zone VNet Links')
-param parVirtualNetworkIdToLink string = ''
+// @sys.description('Resource ID of VNet for Private DNS Zone VNet Links')
+// param parVirtualNetworkIdToLink string = ''
 
 @sys.description('Tags you would like to be applied to all resources in this module.')
 param parTags object = {}
 
-@sys.description('Set Parameter to true to Opt-out of deployment telemetry')
-param parTelemetryOptOut bool = false
+// @sys.description('Set Parameter to true to Opt-out of deployment telemetry')
+// param parTelemetryOptOut bool = false
 
-// Customer Usage Attribution Id
-var varCuaid = '7f94f23b-7a59-4a5c-9a8d-2a253a566f61'
+// // Customer Usage Attribution Id
+// var varCuaid = '7f94f23b-7a59-4a5c-9a8d-2a253a566f61'
 
 // Virtual WAN resource
 resource resVwan 'Microsoft.Network/virtualWans@2022-01-01' = {
