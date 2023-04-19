@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "parKeyVaultName": {
+        "value": "jawaskv001"
+      },
+      "parKeyVaultLocation": {
+        "value": "westeurope"
+      },
+      "parTenantId": {
+        "value": "8724b060-fd35-45e7-ae2c-d093c289ef5a"
+      },
+      "parAutomationAccountName": {
+        "value": "jawas-automation-account"
+      },
+      "parAutomationAccountLocation": {
+        "value": "westeurope"
+      },
+      "parAutomationAccountUseManagedIdentity": {
+        "value": true
+      },
+      "parTags": {
+        "value": {
+          "Environment": "POC"
+        }
+      }
+    }
+  }
