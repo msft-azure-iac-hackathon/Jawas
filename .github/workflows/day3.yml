@@ -47,7 +47,7 @@ jobs:
           region: westeurope
           subscriptionId: ${{ inputs.Subscription_Id }}
           template: ARMtemplates/resourceGroup.json
-          parameters: modules/logging/parameters/resourceGroup.parameters.json
+          parameters: modules/day3/vNet/parameters/nsg.parameters.json
 
       - uses: azure/arm-deploy@v1
         name: Create the NSG
